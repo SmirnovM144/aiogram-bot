@@ -7,7 +7,7 @@ class Database:
         self.pool = None
 
     async def connect(self):
-        self.pool = await asyncpg.create_pool(self.dsn)
+        self.pool = await asyncpg.create_pool(self.dsn, ssl="require")
 
     async def close(self):
         if self.pool:
@@ -73,6 +73,7 @@ class Database:
                 cake TEXT,
                 size TEXT,
                 date_delivery TEXT,
+                media TEXT,
                 logistics TEXT,
                 additional_info TEXT,
                 status TEXT DEFAULT 'new',
