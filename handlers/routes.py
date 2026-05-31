@@ -204,9 +204,7 @@ async def confirm_order(callback: CallbackQuery, state: FSMContext):
             data=data
         )
 
-        admin_id_1 = getenv("ADMIN_ID_1")
-        admin_id_2 = getenv("ADMIN_ID_2")
-        admin_ids = [admin_id_1, admin_id_2]
+        admin_id = getenv("ADMIN_ID")
 
         order_text = f"""
 🆕 Новый заказ
@@ -226,26 +224,26 @@ async def confirm_order(callback: CallbackQuery, state: FSMContext):
 
         media_type = data.get("media_type")
         media = data.get("media")
-        for admin_id in admin_ids:
-            if media_type == "photo":
-                await callback.bot.send_photo(
-                    chat_id=admin_id,
-                    photo=media,
-                    caption=order_text
-                )
 
-            elif media_type == "video":
-                await callback.bot.send_video(
-                    chat_id=admin_id,
-                    video=media,
-                    caption=order_text
-                )
+        if media_type == "photo":
+            await callback.bot.send_photo(
+                chat_id=admin_id,
+                photo=media,
+                caption=order_text
+            )
 
-            else:
-                await callback.bot.send_message(
-                    chat_id=admin_id,
-                    text=order_text
-                )
+        elif media_type == "video":
+            await callback.bot.send_video(
+                chat_id=admin_id,
+                video=media,
+                caption=order_text
+            )
+
+        else:
+            await callback.bot.send_message(
+                chat_id=admin_id,
+                text=order_text
+            )
 
         await state.clear()
 
