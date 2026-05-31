@@ -228,7 +228,7 @@ async def confirm_order(callback: CallbackQuery, state: FSMContext):
 
         if media_type == "photo":
             await callback.bot.send_photo(
-                chat_id=admin_id_1, and chat_id=admin_id_2,
+                chat_id=admin_id_1 and chat_id=admin_id_2,
                 photo=media,
                 caption=order_text
             )
