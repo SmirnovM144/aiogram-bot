@@ -12,6 +12,7 @@ load_dotenv()
 TOKEN = getenv("BOT_TOKEN")
 DATABASE_URL = getenv("DATABASE_URL")
 
+print(DATABASE_URL)
 db = Database(DATABASE_URL)
 setup_database(db)
 
