@@ -71,7 +71,7 @@ async def view_works(callback: CallbackQuery):
     works = await db.get_works()
 
     if not works:
-        await callback.message.answer("Пока нет работ 😢")
+        await callback.message.answer("Пока нет работ 😢", reply_markup=kb.get_back_keyboard())
         return
 
     media = []
