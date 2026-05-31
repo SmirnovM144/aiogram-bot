@@ -6,6 +6,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram import Bot, Dispatcher
 import asyncio
 from os import getenv
+print("MAIN FILE STARTED")
 
 load_dotenv()
 
