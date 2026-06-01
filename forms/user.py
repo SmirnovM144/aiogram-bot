@@ -11,3 +11,5 @@ class Form(StatesGroup):
     logistics = State()  # Способ доставки
     media = State()  # Медиавложения (фото/видео)
     additional_info = State()  # Дополнительная информация
+    # Состояние для просмотра работ (может быть полезно для пагинации)
+    viewing_works = State()

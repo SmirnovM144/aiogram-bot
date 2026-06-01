@@ -1,13 +1,14 @@
-from handlers.keyboards import Keyboards
-from handlers.validators import Validators
-from handlers.constans import SIZES, CAKE_NAMES, LOGISTICS
-from handlers.routes import router
+from aiogram import Dispatcher
+from .common import router as common_router
+from .catalog import router as catalog_router
+from .order import router as order_router
 
-__all__ = [
-    'Keyboards',
-    'Validators',
-    'SIZES',
-    'CAKE_NAMES',
-    'LOGISTICS',
-    'router',
-]
+
+def register_all_handlers(dp: Dispatcher):
+    """
+    Регистрирует все роутеры в диспетчере.
+    Порядок включения имеет значение (сверху вниз).
+    """
+    dp.include_router(common_router)
+    dp.include_router(catalog_router)
+    dp.include_router(order_router)

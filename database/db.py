@@ -24,7 +24,7 @@ class Database:
                 fullname TEXT,
                 phone TEXT,
                 username TEXT,
-                created_at TIMESTAMP DEFAULT NOW()
+                created_at TIMESTAMP WITH TIME ZONE DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'Europe/Moscow')
             )
             """)
 
@@ -36,7 +36,7 @@ class Database:
                 description TEXT,
                 file_id TEXT,
                 media_type TEXT,
-                created_at TIMESTAMP DEFAULT NOW()
+                created_at TIMESTAMP WITH TIME ZONE DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'Europe/Moscow')
             )
             """)
 
@@ -159,6 +159,14 @@ class Database:
                 FROM catalog
                 ORDER BY created_at DESC
             """)
+
+    async def get_product(self, product_id: int):
+        async with self.pool.acquire() as conn:
+            return await conn.fetchrow("""
+                SELECT *
+                FROM catalog
+                WHERE id = $1
+            """, product_id)
 
     # ================= WORKS =================
 
