@@ -30,8 +30,8 @@ async def cmd_start(message: Message, db: Database):
         f"  • Ваши отзывы \n"
         f"  • Мои контакты \n"
         f"  • И возможность сделать заказ прямо здесь!\n\n"
-        f"Устраиватесь поудобнее и давайте начнем наше сладкое путешествие! 🎂✨ \n"
-        f"                                                                        <i>created by Smirnov</i>"
+        f"Устраиватесь поудобнее и давайте начнем наше сладкое путешествие! 🎂✨ \n\n"
+        f"<i>created by Smirnov</i>"
     )
     await message.answer(welcome_text, reply_markup=Keyboards.get_main_menu(), parse_mode="HTML")
 
