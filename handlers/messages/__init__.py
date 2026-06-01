@@ -1,0 +1,7 @@
+"""
+Message handlers module for callbacks and commands.
+"""
+from handlers.messages.callbacks import router as callbacks_router
+from handlers.messages.commands import router as commands_router
+
+__all__ = ['callbacks_router', 'commands_router']
