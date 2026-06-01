@@ -158,7 +158,7 @@ async def process_additional_info(message: Message, state: FSMContext):
         f"🌐 Аккаунт: {data['account']}\n"
         f"🎂 Торт: {data['cake']}\n"
         f"⚖️ Размер: {data['size']}\n"
-        f"📅 Дата готовности: {data['date_delivery']}\n"
+        f"📅 Забронированная дата: {data['date_delivery']}\n"
         f"🚗 Доставка: {data['logistics']}\n"
         f"🖼 Референс: {media_text}\n"
         f"📝 Комментарий: {data['additional_info']}"
@@ -193,7 +193,7 @@ async def callback_confirm_order(callback: CallbackQuery, state: FSMContext, db:
         f"Аккаунт: {data['account']}\n\n"
         f"Торт: {data['cake']}\n"
         f"Размер: {data['size']}\n"
-        f"Дата доставки: {data['date_delivery']}\n"
+        f"Забронированная дата: {data['date_delivery']}\n"
         f"Логистика: {data['logistics']}\n\n"
         f"Доп. информация:\n{data['additional_info']}"
     )
